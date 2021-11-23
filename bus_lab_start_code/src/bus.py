@@ -4,6 +4,7 @@ class Bus:
         self.capacity = capacity
         self.destination = destination
         self.price = price
+        self.total_cash = 0
         self.passengers = []
 
     def drive(self):
