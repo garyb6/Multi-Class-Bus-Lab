@@ -23,5 +23,14 @@ class Bus:
         self.passengers.clear()
 
     def pick_up_from_stop(self, bus_stop):
-        self.passengers.extend(bus_stop.queue)
-        bus_stop.clear()
+        for passenger in bus_stop.queue:
+            if self.capacity < 1:
+                return
+
+            if self.destination == passenger.destination:
+                self.pick_up(passenger)
+                self.capacity -= 1
+                bus_stop.queue.remove(passenger)
+
+        # self.passengers.extend(bus_stop.queue)
+        # bus_stop.clear()
